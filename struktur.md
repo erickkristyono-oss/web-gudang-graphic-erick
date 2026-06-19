@@ -5,7 +5,7 @@ gudang_graphic_web/
 │   │   └── style.css
 │   ├── js/
 │   │   └── script.js
-│   ├── images/             # Taruh file logo dan gambarmu di sini
+│   ├── images/             # file logo 
 │   ├── index.html          # Home Page
 │   ├── product.html        # Page Product / Services
 │   ├── cart.html           # Cart Page
