@@ -1,0 +1,362 @@
+:root {
+    --primary-blue: #0f2027;
+    /* Biru sangat gelap (hampir hitam) untuk kontras */
+    --accent-blue: #203a43;
+    --tosca: #2c5364;
+    /* Biru Toska gelap */
+    --light-tosca: #00b4db;
+    /* Toska terang untuk tombol/sorotan */
+    --text-light: #f8f9fa;
+    --text-dark: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--text-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* Typography untuk judul */
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* --- Navbar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-blue);
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--light-tosca);
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--light-tosca);
+}
+
+.nav-actions a {
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-left: 10px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-login {
+    background-color: transparent;
+    color: var(--light-tosca);
+    border: 1px solid var(--light-tosca);
+}
+
+.btn-login:hover {
+    background-color: var(--light-tosca);
+    color: var(--primary-blue);
+}
+
+.btn-cart {
+    color: var(--text-light);
+}
+
+/* --- Hero Section --- */
+.hero {
+    background: linear-gradient(135deg, var(--primary-blue), var(--tosca));
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
+    padding: 0 20px;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: var(--light-tosca);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.btn-primary {
+    background-color: var(--light-tosca);
+    color: var(--primary-blue);
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0093b2;
+}
+
+/* --- Services Section --- */
+.services {
+    padding: 4rem 5%;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-blue);
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 4px solid var(--light-tosca);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+    color: var(--tosca);
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    padding: 3rem 5% 1rem;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer h3,
+.footer h4 {
+    color: var(--light-tosca);
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.footer-links a:hover {
+    color: var(--light-tosca);
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid var(--accent-blue);
+    padding-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.page-header {
+    background: linear-gradient(135deg, var(--primary-blue), var(--tosca));
+    color: var(var(--light-tosca));
+    padding: 4rem 5%;
+    text-align: center;
+}
+
+.container {
+    padding: 4rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.form-box {
+    background: white;
+    padding: 3rem;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0, 1);
+    border-top: 5px solid var(--tosca);
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: var(--light-tosca);
+}
+
+.btn-submit {
+    width: 100%;
+    background: var(--tosca);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-submit:hover {
+    background: var(--primary-blue);
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    background: white;
+    box-shadow: 0 5px 15 px rgba(0, 0, 0, 0.05);
+}
+
+.cart-table th,
+.cart-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+.cart-table th {
+    background: var(--primary-blue);
+    color: var(--text-light);
+}
+
+.cart-total {
+    text-align: right;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--tosca);
+    margin-bottom: 2rem;
+}
+
+.about-content {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px rgba(0, 0, 0, 05);
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h3 {
+    color: var(--tosca);
+    margin-bottom: 1rem;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        background: var(--text-light);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        flex-direction: column;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .container {
+        padding: 2rem 5%;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}

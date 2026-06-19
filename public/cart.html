@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang | Gudang Graphic</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo gudang graphic.png" alt="Gudang Graphic">
+            <h1>Gudang Graphic</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product.html">Products/Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="cart.html" class="btn-cart active">🛒 Cart</a>
+            <a href="login.html" class="btn-login">Login</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Nama Jasa</th>
+                    <th>Kategori</th>
+                    <th>Harga</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="cart-body">
+            </tbody>
+        </table>
+
+        <div class="cart-total" id="cart-total-price">
+            Total Pembayaran: Rp 0
+        </div>
+
+        <div style="text-align: right;">
+            <a href="checkout.html" class="btn-submit"
+                style="display: inline-block; width: auto; padding: 15px 40px;">Proses Pembayaran</a>
+        </div>
+    </main>
+
+    <script>
+        // 1. Mengambil data dari localStorage (jika kosong, gunakan array [])
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Elemen HTML yang akan dimanipulasi
+        const cartBody = document.getElementById('cart-body');
+        const cartTotalPrice = document.getElementById('cart-total-price');
+
+        // Fungsi untuk memformat angka menjadi Rupiah (opsional tapi bagus untuk UI)
+        function formatRupiah(angka) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(angka);
+        }
+
+        // Fungsi untuk menampilkan keranjang
+        function renderCart() {
+            cartBody.innerHTML = ''; // Kosongkan isi tabel terlebih dahulu
+            let total = 0;
+
+            if (cart.length === 0) {
+                cartBody.innerHTML = '<tr><td colspan="4" style="text-align:center;">Keranjang Anda masih kosong.</td></tr>';
+                cartTotalPrice.innerHTML = 'Total Pembayaran: Rp 0';
+                return;
+            }
+
+            // Looping data keranjang dan buat baris tabel
+            cart.forEach((item, index) => {
+                total += item.price; // Tambahkan ke total harga
+
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${item.category}</td>
+                    <td>${formatRupiah(item.price)}</td>
+                    <td>
+                        <button onclick="hapusItem(${index})" style="color: red; border: none; background: none; cursor: pointer; font-weight: bold;">Hapus</button>
+                    </td>
+                `;
+                cartBody.appendChild(row);
+            });
+
+            // Update tampilan total harga
+            cartTotalPrice.innerHTML = `Total Pembayaran: ${formatRupiah(total)}`;
+        }
+
+        // Fungsi untuk menghapus item
+        function hapusItem(index) {
+            // Hapus 1 item dari array berdasarkan index
+            cart.splice(index, 1);
+
+            // Simpan array yang baru ke localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Render ulang tampilannya
+            renderCart();
+        }
+
+        // Jalankan fungsi saat halaman dimuat
+        renderCart();
+    </script>
+</body>
+
+</html>

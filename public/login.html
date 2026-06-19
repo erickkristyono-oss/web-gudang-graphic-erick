@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Gudang Graphic</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo gudang graphic.png" alt="Gudang Graphic">
+            <h1>Gudang Graphic</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="product.html">Products/Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="cart.html" class="btn-cart">🛒 Cart</a>
+            <a href="login.html" class="btn-login">Login</a>
+        </div>
+    </nav>
+    <main class="container">
+        <div class="form-box">
+            <h2 style="text-align: center; color: var(--primary-blue); margin-bottom: 20px;">Masuk Akun</h2>
+            <form action="http://localhost:3000/login" method="POST">
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="nama@email.com" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="********" required>
+                </div>
+                <button type="submit" class="btn-submit">Login</button>
+            </form>
+            <p style="text-align: center; margin-top: 20px;">
+                Belum punya akun? <a href="/register.html" style="color: var(--light-tosca);">Daftar di sini</a>
+            </p>
+        </div>
+    </main>
+
+</body>
+
+</html>

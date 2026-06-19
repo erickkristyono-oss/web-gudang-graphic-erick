@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jasa Desain | Gudang Graphic</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo gudang graphic.png" alt="Gudang Graphic">
+            <h1>Gudang Graphic</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product.html" class="active">Products/Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="cart.html" class="btn-cart">🛒 Cart</a>
+            <a href="login.html" class="btn-login">Login</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="service-grid" id="product-list">
+            <div class="service-card">
+                <h3>💻 Website Design Premium</h3>
+                <p>Desain UI/UX website profesional dan responsif.</p>
+                <h4 style="color: var(--primary-blue); margin: 15px 0;">Rp 2.500.000</h4>
+                <button onclick="tambahKeKeranjang('Website Design Premium', 'Website', 2500000)" class="btn-primary"
+                    style="display: block; width: 100%; text-align: center; border: none; cursor: pointer; font-family: inherit; font-size: 16px;">Masukan
+                    Keranjang</button>
+            </div>
+
+            <div class="service-card">
+                <h3>🖨️ Print Design Package</h3>
+                <p>Desain brosur, poster, dan materi cetak lainnya.</p>
+                <h4 style="color: var(--primary-blue); margin: 15px 0;">Rp 800.000</h4>
+                <button onclick="tambahKeKeranjang('Print Design Package', 'Print', 800000)" class="btn-primary"
+                    style="display: block; width: 100%; text-align: center; border: none; cursor: pointer; font-family: inherit; font-size: 16px;">Masukan
+                    Keranjang</button>
+            </div>
+
+            <div class="service-card">
+                <h3>🛋️ Interior 3D Concept</h3>
+                <p>Visualisasi 3D desain interior yang artistik.</p>
+                <h4 style="color: var(--primary-blue); margin: 15px 0;">Rp 3.500.000</h4>
+                <button onclick="tambahKeKeranjang('Interior 3D Concept', 'Interior', 3500000)" class="btn-primary"
+                    style="display: block; width: 100%; text-align: center; border: none; cursor: pointer; font-family: inherit; font-size: 16px;">Masukan
+                    Keranjang</button>
+            </div>
+
+            <div class="service-card">
+                <h3>🎯 Brand Identity Complete</h3>
+                <p>Pembuatan logo, palet warna, dan pedoman visual.</p>
+                <h4 style="color: var(--primary-blue); margin: 15px 0;">Rp 1.500.000</h4>
+                <button onclick="tambahKeKeranjang('Brand Identity Complete', 'Branding', 1500000)" class="btn-primary"
+                    style="display: block; width: 100%; text-align: center; border: none; cursor: pointer; font-family: inherit; font-size: 16px;">Masukan
+                    Keranjang</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function tambahKeKeranjang(nama, kategori, harga) {
+            // 1. Ambil data keranjang saat ini
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // 2. Buat data item baru
+            const itemBaru = {
+                name: nama,
+                category: kategori,
+                price: harga
+            };
+
+            // 3. Masukkan ke dalam array keranjang
+            cart.push(itemBaru);
+
+            // 4. Simpan kembali ke localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // 5. Beri notifikasi
+            alert(nama + " berhasil ditambahkan ke keranjang!");
+        }
+    </script>
+</body>
+
+</html>
