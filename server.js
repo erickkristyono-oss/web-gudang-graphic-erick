@@ -105,6 +105,53 @@ app.get('/api/services', (req, res) => {
         res.json(results);
     });
 });
+// ==========================================
+// API CHECKOUT (MENYIMPAN PESANAN KE DATABASE)
+// ==========================================
+app.post('/api/checkout', (req, res) => {
+    // Menangkap data yang dikirim dari form frontend
+    const { name, email, phone, total, items } = req.body;
+
+    // 1. Simpan data pelanggan ke tabel orders
+    const sqlOrder = "INSERT INTO orders (customer_name, customer_email, customer_phone, total_price) VALUES (?, ?, ?, ?)";
+
+    db.query(sqlOrder, [name, email, phone, total], (err, result) => {
+        if (err) return res.status(500).json({ error: err.message });
+
+        const orderId = result.insertId; // Mendapatkan ID pesanan yang baru saja dibuat
+
+        // 2. Simpan item keranjang ke tabel order_items
+        if (items && items.length > 0) {
+            const sqlItems = "INSERT INTO order_items (order_id, service_title, price) VALUES ?";
+            // Format array data untuk di-insert sekaligus
+            const values = items.map(item => [orderId, item.title, item.price]);
+
+            db.query(sqlItems, [values], (err, itemResult) => {
+                if (err) return res.status(500).json({ error: err.message });
+                res.json({ message: "Checkout berhasil!", orderId: orderId });
+            });
+        } else {
+            res.json({ message: "Checkout berhasil (tanpa item)!", orderId: orderId });
+        }
+    });
+});
+
+
+// API CONTACT US 
+
+app.post('/api/contact', (req, res) => {
+    const { name, email, message } = req.body;
+
+    const sql = "INSERT INTO messages (name, email, message) VALUES (?, ?, ?)";
+    db.query(sql, [name, email, message], (err, result) => {
+        if (err) {
+            console.error("❌ ERROR SIMPAN PESAN:", err.message);
+            return res.status(500).json({ error: err.message });
+        }
+        console.log(`📩 Pesan baru masuk dari: ${name}`);
+        res.json({ success: true });
+    });
+});
 
 // --- JALANKAN SERVER ---
 const PORT = 3000;

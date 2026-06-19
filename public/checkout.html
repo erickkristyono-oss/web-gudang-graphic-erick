@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Gudang Graphic</title>
+    <title>Checkout | Gudang Graphic</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -15,8 +15,8 @@
             <h1>Gudang Graphic</h1>
         </div>
         <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="product.html">Products/Services</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product.html" class="active">Products/Services</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="contact.html">Contact Us</a></li>
         </ul>
@@ -26,26 +26,31 @@
         </div>
     </nav>
 
-    <main class="container">
-        <div class="form-box">
-            <form id="contact-form" onsubmit="processContact(event)">
-                <div class="input-group">
-                    <label style="color: var(--text-main); font-weight: bold;">Nama Lengkap</label>
-                    <input type="text" id="msg_name" placeholder="John Doe" required>
-                </div>
-                <div class="input-group">
-                    <label style="color: var(--text-main); font-weight: bold;">Email</label>
-                    <input type="email" id="msg_email" placeholder="nama@email.com" required>
-                </div>
-                <div class="input-group">
-                    <label style="color: var(--text-main); font-weight: bold;">Pesan / Detail Proyek</label>
-                    <textarea id="msg_text" rows="5" placeholder="Ceritakan detail desain yang Anda butuhkan..."
-                        required></textarea>
-                </div>
-                <button type="submit" class="btn-primary" style="width: 100%;">Kirim Pesan</button>
+    <div class="container"
+        style="display: flex; justify-content: center; align-items: flex-start; min-height: 80vh; padding-top: 120px;">
+        <div class="form-box" style="width: 100%; max-width: 600px;">
+            <h2 style="color: var(--tosca); margin-bottom: 20px; text-align: center;">Detail Pemesanan</h2>
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 30px;">Silakan lengkapi data diri
+                Anda agar tim kami dapat menghubungi Anda untuk tahap desain selanjutnya.</p>
+
+            <form id="checkout-form" onsubmit="processCheckout(event)">
+                <label style="color: var(--text-main); font-weight: bold;">Nama Lengkap</label>
+                <input type="text" id="c_name" placeholder="Contoh: Budi Santoso" required>
+
+                <label style="color: var(--text-main); font-weight: bold;">Email Aktif</label>
+                <input type="email" id="c_email" placeholder="Contoh: budi@email.com" required>
+
+                <label style="color: var(--text-main); font-weight: bold;">Nomor WhatsApp</label>
+                <input type="number" id="c_phone" placeholder="Contoh: 081234567890" required>
+
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 20px;">Selesaikan Pesanan &
+                    Bayar</button>
             </form>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="cart.html" style="color: var(--text-muted);">⬅ Kembali ke Keranjang</a>
+            </div>
         </div>
-    </main>
+    </div>
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-about">
@@ -68,8 +73,8 @@
             <p>&copy; 2026 Gudang Graphic. All rights reserved.</p>
         </div>
     </footer>
+
     <script src="js/script.js"></script>
-</body>
 </body>
 
 </html>
