@@ -105,9 +105,9 @@ app.get('/api/services', (req, res) => {
         res.json(results);
     });
 });
-// ==========================================
-// API CHECKOUT (MENYIMPAN PESANAN KE DATABASE)
-// ==========================================
+
+// API CHECKOUT SIMPAN PESANAN KE DATABASE
+
 app.post('/api/checkout', (req, res) => {
     // Menangkap data yang dikirim dari form frontend
     const { name, email, phone, total, items } = req.body;
